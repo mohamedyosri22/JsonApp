@@ -6,7 +6,8 @@ import java.io.IOException;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.json.model.User;
+import com.json.model.Person;
+
 
 /**
  * Hello world!
@@ -15,8 +16,12 @@ import com.json.model.User;
 public class App {
 	public static void main(String[] args) throws JsonParseException, JsonMappingException, IOException {
 		ObjectMapper map = new ObjectMapper();
-		User user = map.readValue(new File("info/user.json"), User.class);
-		System.out.println(user.getId() + "  " + user.getName());
-		System.out.println(user.getAge() + "  " + user.getAddress()[0]+","+user.getAddress()[1]);
+		Person person = map.readValue(new File("info/person.json"), Person.class);
+		
+		System.out.println(person.getId()+"  "+person.getName());
+		
+		String fullPhone = person.getPhones().getCode()+person.getPhones().getPhone();
+		
+		System.out.println(fullPhone);
 	}
 }
