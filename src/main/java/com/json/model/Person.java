@@ -1,11 +1,15 @@
 package com.json.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Person  {
 	private int id;
 	private String name;
 	private int age;
 	
 	private Phones phones;
+	
 
 	public Person() {
 		super();

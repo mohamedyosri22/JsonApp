@@ -16,7 +16,7 @@ import com.json.model.Person;
 public class App {
 	public static void main(String[] args) throws JsonParseException, JsonMappingException, IOException {
 		ObjectMapper map = new ObjectMapper();
-		Person person = map.readValue(new File("info/person.json"), Person.class);
+		Person person = map.readValue(new File("info/person.json") , Person.class);
 		
 		System.out.println(person.getId()+"  "+person.getName());
 		
